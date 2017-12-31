@@ -138,13 +138,13 @@ ParticleAccessory.prototype.setState = function(state, callback) {
 	
 	this.log.info("Calling function: " + onUrl);
 	
-	var argument = this.args.replace("{STATE}", (state ? "1" : "0"));
+	var argument = (state ? "on" : "off");
 
 	request.post(
 		onUrl, {
 			form: {
 				access_token: this.accessToken,
-				args: argument
+				arg: argument
 			}
 		},
 		function(error, response, body) {
